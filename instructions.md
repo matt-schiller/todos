@@ -52,18 +52,18 @@ Be sure to utilize the [MYSQL Heroku Deployment Guide](../Supplemental/MySQLHero
 
 <!-- 2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following: -->
 
-   * Create the `burgers_db`.
+   <!-- * Create the `burgers_db`.
    * Switch to or use the `burgers_db`.
    * Create a `burgers` table with these fields:
      * **id**: an auto incrementing int that serves as the primary key.
      * **burger_name**: a string.
-     * **devoured**: a boolean.
+     * **devoured**: a boolean. -->
 
-3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
+<!-- 3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries. -->
 
-4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
+<!-- 4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line -->
 
-5. Now you're going to run these SQL files. 
+<!-- 5. Now you're going to run these SQL files. 
 
    * Make sure you're in the `db` folder of your app.
 
@@ -73,19 +73,19 @@ Be sure to utilize the [MYSQL Heroku Deployment Guide](../Supplemental/MySQLHero
 
    * Now insert the entries you defined in `seeds.sql` by running the file: `source seeds.sql`.
 
-   * Close out of the MySQL command line tool: `exit`.
+   * Close out of the MySQL command line tool: `exit`. -->
 
 #### Config Setup
 
-1. Inside your `burger` directory, create a folder named `config`.
+<!-- 1. Inside your `burger` directory, create a folder named `config`. -->
 
-2. Create a `connection.js` file inside `config` directory.
+<!-- 2. Create a `connection.js` file inside `config` directory.
 
    * Inside the `connection.js` file, setup the code to connect Node to MySQL.
 
-   * Export the connection.
+   * Export the connection. -->
 
-3. Create an `orm.js` file inside `config` directory.
+<!-- 3. Create an `orm.js` file inside `config` directory.
 
    * Import (require) `connection.js` into `orm.js`
 
@@ -95,44 +95,44 @@ Be sure to utilize the [MYSQL Heroku Deployment Guide](../Supplemental/MySQLHero
      * `insertOne()` 
      * `updateOne()` 
 
-   * Export the ORM object in `module.exports`.
+   * Export the ORM object in `module.exports`. -->
 
 #### Model setup
 
-* Inside your `burger` directory, create a folder named `models`.
+<!-- * Inside your `burger` directory, create a folder named `models`. -->
 
-  * In `models`, make a `burger.js` file.
+  <!-- * In `models`, make a `burger.js` file. -->
 
-    * Inside `burger.js`, import `orm.js` into `burger.js`
+    <!-- * Inside `burger.js`, import `orm.js` into `burger.js` -->
 
-    * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
+    <!-- * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM. -->
 
-    * Export at the end of the `burger.js` file.
+    <!-- * Export at the end of the `burger.js` file. -->
 
 #### Controller setup
 
-1. Inside your `burger` directory, create a folder named `controllers`.
+<!-- 1. Inside your `burger` directory, create a folder named `controllers`. -->
 
-2. In `controllers`, create the `burgers_controller.js` file.
+<!-- 2. In `controllers`, create the `burgers_controller.js` file. -->
 
-3. Inside the `burgers_controller.js` file, import the following:
+<!-- 3. Inside the `burgers_controller.js` file, import the following: -->
 
-   * Express
-   * `burger.js`
+   <!-- * Express -->
+   <!-- * `burger.js` -->
 
 4. Create the `router` for the app, and export the `router` at the end of your file.
 
 #### View setup
 
-1. Inside your `burger` directory, create a folder named `views`.
+<!-- 1. Inside your `burger` directory, create a folder named `views`. -->
 
-   * Create the `index.handlebars` file inside `views` directory.
+   <!-- * Create the `index.handlebars` file inside `views` directory. -->
 
-   * Create the `layouts` directory inside `views` directory.
+   <!-- * Create the `layouts` directory inside `views` directory. -->
 
-     * Create the `main.handlebars` file inside `layouts` directory.
+     <!-- * Create the `main.handlebars` file inside `layouts` directory. -->
 
-     * Setup the `main.handlebars` file so it's able to be used by Handlebars.
+     <!-- * Setup the `main.handlebars` file so it's able to be used by Handlebars. -->
 
      * Setup the `index.handlebars` to have the template that Handlebars can render onto.
 

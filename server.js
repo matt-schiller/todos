@@ -1,5 +1,6 @@
 // Dependencies
 const express = require('express');
+const hbars = require('express-handlebars');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 
@@ -20,9 +21,17 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static('public'));
 
-// Routes
+// Handlebars view engine
+app.engine('handlebars', hbars({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+// // Routes [superseded by controller]
 // require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+// require("./routes/api-routes.js")(app);
+
+// Controller routes
+const routes = require('./controllers/todos_controller.js');
+app.use(routes);
 
 // Sequelize and start app
 db.sequelize.sync().then(function() {

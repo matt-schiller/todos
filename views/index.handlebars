@@ -1,0 +1,61 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-center"><i class="far fa-list-alt"></i> Matt's Todos</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Pending</h1>
+            {{#each todos}}
+                {{#unless done}}
+                    <div class="card text-white bg-primary my-2">
+                        <div class="card-body">
+                            <p class="card-text"><i class="far fa-square checkbox" data-id="{{id}}"></i> {{description}}</p>
+                        </div>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </div>
+        <div class="col">
+            <h1 class="text-center">Done</h1>
+            {{#each todos}}
+                {{#if done}}
+                    <div class="card text-white bg-primary my-2">
+                        <div class="card-body">
+                            <p class="card-text"><i class="far fa-check-square checkbox" data-id="{{id}}"></i> {{description}}</p>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-6 offset-3 text-center">
+            <h2>Add new</h2>
+            <input class="form-control my-2" id="new">
+            <a class="btn btn-primary text-white" id="submit">Submit</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on('click', '#submit', function() {
+        var newTodo = $('#new').val();
+        $.ajax('/api/todo', {
+            type: 'POST',
+            data: { description: newTodo }
+        }).then(function() {
+            location.reload();
+        });
+    });
+    $(document).on('click', '.checkbox', function() {
+        console.log("changing status");
+        var id = $(this).attr('data-id');
+        if($(this).hasClass("fa-square")) { var newStatus = true } else { var newStatus = false };
+        $.ajax('/api/todo/' + id, {
+            type: 'PUT',
+            data: { done: newStatus }
+        }).then(function() {
+            location.reload();
+        });
+    });
+</script>
